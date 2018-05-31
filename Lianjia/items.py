@@ -33,3 +33,6 @@ class LianjiaItem(scrapy.Item):
     contact_people = scrapy.Field()
     #联系电话
     phone = scrapy.Field()
+    image_urls = scrapy.Field()
+    images = scrapy.Field()
+    header_referer = scrapy.Field()

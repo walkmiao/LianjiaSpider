@@ -39,14 +39,14 @@ DOWNLOAD_DELAY = 0
 #TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-DEFAULT_REQUEST_HEADERS = {
-        'Accept': 'application/json, text/javascript, */*; q=0.01',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
-        'Connection': 'keep-alive',
-        'Host': 'nj.lianjia.com',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
-}
+# DEFAULT_REQUEST_HEADERS = {
+#         'Accept': 'application/json, text/javascript, */*; q=0.01',
+#         'Accept-Encoding': 'gzip, deflate, br',
+#         'Accept-Language': 'zh-CN,zh;q=0.9',
+#         'Connection': 'keep-alive',
+#         'Host': 'nj.lianjia.com',
+#         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+# }
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
@@ -70,6 +70,7 @@ DEFAULT_REQUEST_HEADERS = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'Lianjia.pipelines.LianjiaPipeline': 300,
+   'Lianjia.imagepipelines.MyImagesPipeline': 100,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -98,3 +99,7 @@ MONGO_HOST = "127.0.0.1"  # 主机IP
 MONGO_PORT = 27017  # 端口号
 MONGO_DB = "LianjiaDB"  # 库名
 MONGO_COLL = "zf_info"  # collection名
+
+#自定义存储imageurl的字段,item["front_image_url"]
+IMAGES_URL_FILED = "images"
+IMAGES_STORE = '/tmp/images/'
